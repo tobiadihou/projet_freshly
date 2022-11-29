@@ -1,0 +1,922 @@
+/*
+****************************************************************************************
+                                    GENERALITES
+****************************************************************************************
+*/
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+/****** FONT FACE ******/
+@font-face {
+    font-family: athiti;
+    src: url("athiti/Athiti-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: athiti-bold;
+    src: url("athiti/Athiti-Bold.ttf");
+}
+
+@font-face {
+    font-family: merienda;
+    src: url("Merienda/Merienda-Regular.ttf");
+}
+
+body {
+    margin: 0;
+    font-family: athiti;
+}
+
+/****** TITRE DE PAGES ET RUBRIQUES ******/
+h1,
+h2,
+h3,
+h4 {
+    font-family: merienda;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: var(--titredespages);
+    padding-top: 1rem;
+}
+
+h3{
+    padding-top: 1rem;
+}
+
+p{
+    font-size: 18px;
+}
+
+/****** LES VARIABLES CSS ******/
+:root {
+    
+    /* ### Taille des polices */
+    --pardéfaut : 18px;
+    --titredespages: 30px;
+    --sous-rubriques: 25px;
+    --titredesmenus: 20px;
+    --prixdesmenus: 50px;
+    --textesousmenus: 15px;
+    --titresdupieddepage : 18px;
+    --textedupieddepage: 16px ;/*boutons de tri et bouton de validation du formulaire*/
+
+    /* ### Couleurs */
+    --marron: #4c4343;
+    --beige: #ebe3db;
+    --rouge: #950000;
+    --white: #fff;
+    --clr-survole : rgba(76,67,67,.9);
+}
+
+html
+{
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    
+}
+
+
+::-webkit-scrollbar-track{
+    background-color: var(--beige);
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--rouge);
+    border-radius: 50px;
+
+}
+
+
+/*
+****************************************************************************************
+                                    CLASSE UTILITAIRE
+****************************************************************************************
+*/
+.center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.background {
+    background-color: var(--beige);
+    font-size: var(--pardéfaut);
+}
+
+.container {
+    margin: 0 auto;
+    padding-inline: 1rem;
+}
+
+img:not(.logo) {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.logo {
+    width: 150px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+.twostar::after,
+.twostar::before {
+    content: url(./star.svg);
+    margin-inline: 5px;
+   position: relative;
+   bottom: 5px;
+}
+
+.onestar::before {
+    content: url(./star.svg);
+    margin-right: 5px;
+    
+}
+
+.star::before {
+    content: url(./star.svg);
+    border-bottom: 1px dotted var(--rouge);
+    position: absolute;
+    left: -15px;
+    bottom: 5px;
+    margin-right: 5px;
+}
+.starone::before {
+    content: url(./star.svg);
+    border-bottom: 1px dotted var(--rouge);
+    position: relative;
+    bottom: 5px;
+    margin-right: 5px;
+}
+
+legend
+{
+    font-family: merienda;
+}
+
+
+/*
+****************************************************************************************
+                                    HEADER
+****************************************************************************************
+*/
+header {
+    background-image: linear-gradient(#ebe3db , white 20%);
+}
+
+header > div > p {
+    font-size: var(--titredespages);
+}
+
+/****** LA NAV ******/
+.activeprincipal {
+    background-color: var(--marron);
+    color: white;
+} 
+
+nav > ul {
+    background-color: var(--beige);
+    border-block: 1px solid var(--marron);   
+}
+
+nav > ul > li {
+    padding-block: 1.5rem;
+   
+    position: relative;
+    text-align: center;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    font-size: var(--titredesmenus);
+    color: #000;  
+    position: absolute;
+    transition: 1s;
+    top: 0;right: 0;left: 0;bottom: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: .5rem;
+}
+
+nav > ul > li > a:hover:not(.activeprincipal) {
+    background-color: var(--rouge);
+    color: #fff;
+}
+
+/*
+****************************************************************************************
+                                    PAGE HOME
+****************************************************************************************
+*/
+
+/****** SLIDE SHOW  ******/
+
+.slideshow-container {
+    position: relative;
+    margin-block: 2rem;
+}
+
+.slideshow-container > .mySlides > img {
+    vertical-align: middle;
+}
+
+.mySlides {
+    display: none;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Positionner le bouton next à droite */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* lorsqu'on survole les prev et next afficher un background de couleur noir */
+.prev:hover,
+.next:hover {
+    background-color: var(--rouge);
+}
+
+/* Les petits points en bas des slides */
+.dot {
+    margin-top: 1rem;
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: var(--rouge);
+}
+
+/* Animation des fade */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+/****** SPECIAL MENUS ******/
+.specialmenu > article {
+    background-color: var(--beige);
+    padding-block: 1rem 4rem;
+    margin-block: 2rem;
+}
+
+.specialmenu > article > figure {
+    margin: 0;
+    position: relative;
+}
+
+.specialmenu > article > figure > figcaption{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 7px;
+    top: 0;
+    background-color:var(--clr-survole);
+    padding: 1rem;
+    visibility: hidden;
+}
+.specialmenu > article > figure:hover > figcaption {
+    visibility: visible;
+    
+}
+.specialmenu > article > figure:hover {
+    transform: scale(1);
+}
+
+.specialmenu > article > figure > figcaption > p {
+    border: 5px solid var(--white);
+    padding: 3rem;
+    color: var(--white);
+}
+
+.specialmenu > article > figure > figcaption > p > span {
+    display: block;
+    text-align: center;
+}
+
+.specialmenu > article > figure > figcaption > p > span.menuprix {
+    font-size: var(--prixdesmenus);
+}
+
+.menuoption {
+    margin: 0;
+}
+
+.menuoption > li {
+    border-bottom: 1px dashed var(--marron);
+    padding: .5rem 1rem;
+}
+
+.specialmenu > article {
+    display: flex;
+    flex-direction: column; 
+}
+
+.specialmenu > article > a {
+    color: white;
+    text-decoration: none;
+    background-color: var(--marron);
+    padding-block: .5rem ;
+    position: relative;
+    top: 1rem;
+    align-self: center;
+    width: 95%;
+    transition: .5s;
+    text-align: center;
+}
+
+.specialmenu > article > a:hover {
+    background-color: var(--rouge);
+}
+/****** IMAGE DU BUTTON ******/
+img.forknife {
+    height:25px;
+    width: 25px;
+    position: relative;
+    top: 5px;
+    right: .6rem;
+
+}
+
+/*
+****************************************************************************************
+                                    PAGE ABOUT
+****************************************************************************************
+*/
+/****** VIDEO ******/
+video {
+    width:100% ;
+    height:auto;
+    margin: 0 auto;
+}
+
+/****** class: table container des images about et le background-color  ******/
+.tables {
+    background-color:var(--beige);
+    padding-top: 2rem ;
+    padding-bottom: .2rem;
+    margin-bottom: 2rem;
+}
+
+.tables > figure {
+    margin-bottom: 2rem;   
+}
+
+.tables > figure > img {
+    box-shadow: 2px 2px 6px;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.tables > figure > figcaption {
+    font-size: 1.3rem; 
+}
+
+/*
+****************************************************************************************
+                                    PAGE MENU
+****************************************************************************************
+*/
+/****** LE TRI DES MENUS ******/
+
+
+
+section.menuall > .tri {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 0;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    
+}
+
+section.menuall > .tri > button:not(.activemenu) {
+    background-color: var(--beige);
+    border: none;
+    padding: 1rem 2rem;
+    margin-block: .5rem;   
+    border-radius: 50px;
+    transition: .5s;
+}
+
+.tri > button.activemenu {
+    background-color: var(--rouge);
+    border: none;
+    padding: 1rem 2rem;
+    margin-block: .5rem;
+    color: white;
+    border-radius: 50px;
+    transition: .5s;
+
+}
+
+section.menuall > .tri > button:hover {
+    background-color: var(--rouge);
+    color: var(--white);
+}
+
+.menu-image {
+    background-color: var(--beige);
+    padding: 2.5rem 1rem;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 3rem 1rem;
+}
+
+.menu-image > figure {
+    margin: 0;
+    transition: .5s;
+}
+
+.menu-image > figure > img {
+    box-shadow: 2px 2px 5px;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.menu-image > figure > figcaption {
+    display: none;
+    background-color: var(--clr-survole) ;
+    padding: 3.5rem;   
+    position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 7px;      
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.menu-image > figure > figcaption > div {
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+    align-items: center;
+    border: 5px solid var(--white);
+    padding: 2rem;
+    position: absolute;
+    bottom: 1.7rem;
+    top:1.7rem;
+    left:1.7rem;
+    right: 1.7rem;
+    text-align: center;
+    justify-content: center;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.sizes {
+    width: 40px;
+    height: 40px;
+}
+
+.menu-image > figure > figcaption > div > p {
+    width: 100%;
+    font-size: 1.5rem;
+   
+}
+
+.menu-image > figure:hover {
+    transform: scale(1.06);   
+}
+
+.menu-image > figure:hover > figcaption {
+    display: block;   
+}
+
+button{
+    font-family: athiti-bold;
+    font-size: var(--titredessousmenus);
+}
+
+
+
+/*
+****************************************************************************************
+                                    PAGE CONTACT
+****************************************************************************************
+*/
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+}
+
+fieldset {
+    border: none;
+    flex-basis: 100%;
+    margin: 0;
+}
+
+fieldset > div {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-block: 1.5rem;
+    height: 4rem;
+}
+
+ form > .onefieldset {
+    flex-wrap: wrap;
+}
+
+legend {
+    font-size: var(--titredespages);
+    font-weight: bold;
+}
+
+label {
+    position: relative;
+}
+
+input {
+    flex-basis: 100%;
+    border-radius: 8px;
+   padding-inline: 5px;
+   font-size: 18px;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    height: 7rem;
+    border-radius: 5px;
+}
+
+input[type=submit] {
+    background-color:var(--marron);
+    color:var(--white);
+    padding: .8rem 5rem;
+    width: 15rem;
+    align-self: center;
+    font-size: var(--titresdupieddepage);
+    border: none;
+    transition: .5s;
+}
+
+input[type=submit]:hover {
+    transform: scaleX(1.05);
+    background-color: var(--rouge);
+}
+ 
+.maps {
+    margin-bottom:1rem;
+    border: 2px solid var(--marron);
+}
+
+/*
+****************************************************************************************
+                                MEDIA QUERISE 780PX
+****************************************************************************************
+*/
+
+@media screen and (min-width:780px) {
+    /****** NAV BAR ******/
+    .activeprincipal {
+        padding: .5rem 1rem;
+    }
+
+    nav > ul {
+        display: flex;
+        justify-content: space-around;
+        border: none;
+    }
+
+    nav > ul > li {
+        padding-block: .5rem;
+        border: none;
+        position: static;
+    }
+    
+    nav > ul > li > a {
+        position: static;
+        border: none;
+        padding: .5rem 1rem;
+    }
+
+    div.footerfirst {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    /****** PAGE MENU ******/
+
+    section.menuall > .tri {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    section.menuall > .tri > button:hover:not(.activemenu) {
+        background-color: var(--rouge);
+       
+    }
+    
+    .tri > button.activemenu:hover{
+        background-color: var(--rouge);
+      
+    }
+
+    .menu-image {
+        grid-template-columns: auto auto ;
+        gap: 3rem 1rem;
+    } 
+
+    .menu-image > figure > figcaption > div>p {
+        width: 100%;
+        font-size: 1rem; 
+    }
+
+    .menu-image > figure:last-child {
+        position: relative;
+        left: 50%;
+    }
+    
+    .milieu {
+        position: relative;
+        left: 50%;
+    }
+
+    /****** PAGE CONTACT ******/
+
+    fieldset {   
+        flex-basis: 50%;
+    }
+
+    /****** PAGE ABOUT ******/
+    .container .about {
+        margin: 0 auto;
+    }
+
+    .tables {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 1.5rem;
+        padding-inline: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .tables > figure {
+        margin: 0;   
+    }
+
+    .video {
+        text-align: center;
+    }
+
+    .video > video {
+        width:700px ;
+        height:auto;
+    }
+
+}
+
+/*
+****************************************************************************************
+                                MEDIA QUERISE 980PX
+****************************************************************************************
+*/
+
+@media screen and (min-width:980px){
+  
+    main {
+        margin: 0 auto;
+        max-width: 1400px;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-block: 3rem; 
+    }
+
+    /****** NAV ******/
+    nav {
+        width: 30rem;     
+    }
+
+    nav > ul {
+        background-color: transparent;      
+    }
+    
+    nav > ul > li {  
+        padding-inline:1rem;
+    }
+
+    nav > ul > li > a {
+        font-size: var(--titredesmenus);
+        background-color: var(--beige);
+        color: #000;  
+    }
+
+    header > div {
+        display: flex;
+        align-items: center;
+    }
+
+    /********* PAGE HOME ********/
+    .home-welcome {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        gap: 1rem;
+    }
+
+    .home-welcome > h2 {
+       flex-basis: 100%;
+       order: 4;
+    }
+
+    .home-welcome > img.location {
+        width: 38%;
+        height: auto;
+        order: 3;
+        object-fit: cover;
+    }
+
+    .home-welcome > div {
+        flex-basis: 60%;
+        order:2;
+    }
+
+    /********  About **********/
+
+    .video
+    {
+        text-align: center;
+    }
+    .video>video
+    {
+        width:980px ;
+        height:auto;
+    }
+    
+    /****** PAGE MENU ******/
+    .specialmenu {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows:repeat(2,auto) ;
+        column-gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .specialmenu > h2 {
+        grid-area: 1/span 3;
+    }
+
+    .menu-image {
+        grid-template-columns: auto auto auto ;
+        gap: 3rem 1rem;
+    }
+
+    .menu-image > figure:last-child {
+        position: inherit;
+    }
+
+    /* .menu-image > figure:nth-last-of-type(7),
+    .menu-image > figure:nth-last-of-type(8){
+        position: static;
+        right: 50%;
+        overflow: dense;
+    }  */
+    .menu-image > figure > figcaption > div > p{
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .milieu {
+        position:static;
+        
+    }
+    /************  CONTACT *********/
+    form {
+        max-width: 980px;
+        margin: 0 auto;
+    }
+}
+
+/*
+****************************************************************************************
+                                    FOOTER
+****************************************************************************************
+*/
+
+footer {
+    color: var(--white);
+    margin-top:1rem;   
+}
+/****** FOOTER CLASS:footerfirst ******/
+div.footerfirst {
+    background: url(instructions/ressources/images/footer-bg.jpg) no-repeat center;
+    background-size: cover;
+}
+
+div.footerfirst > article > h3 {
+    border-bottom: 1px dashed white;
+}
+
+.footerfirst > article > a {
+    text-decoration: none;
+    color: white;
+}
+
+.containIcons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.containIcons > .icons > a > svg:hover {
+    transform:rotate(360deg)  scale(1.5) ;
+    transition: all .5s;
+}
+
+.size{
+    width: 30px;
+    height: 30px;
+}
+
+/****** FOOTER CLASS:footertwo ******/
+div.footertwo {
+    background-color: #444444;
+    padding: 1rem;
+}
+
+div.footertwo > img {
+    width: 60px;
+}
+
+div.footertwo > p a {
+    color: white;
+}
+
+div.footertwo > p > span {
+    text-decoration: underline;
+}
+
+div.arrow-up{
+    margin-top: 3rem;
+   
+}
+
+div.arrow-up > a{
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+    align-items: center;
+    text-decoration: none;
+    
+}

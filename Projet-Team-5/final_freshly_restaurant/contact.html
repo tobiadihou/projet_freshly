@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./instructions/ressources/images/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <header id="header" class="center">
+        <div>
+            <a href="home.html"><img class="logo" src="instructions/ressources/images/logo.png" alt="logo"></a>
+            <p class="twostar">FRESHLY RESTAURANT</p>
+        </div>
+        <nav>
+            <ul >
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menus</a></li>
+                <li><a class="activeprincipal" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section>
+            <div class="center">
+                <h2 class="twostar">Contact us</h2>
+                <p>If your want to make a reservation, please complete this form.</p>
+                <p><em>Fields with <span class="starone"></span>are required.</em>
+                </p>
+            </div>
+        
+            <form action="#" method="get" class="background">
+                <div class="onefieldset flex">
+                    <fieldset>
+                        <legend>Reservation</legend>
+                        <div>
+                            <label for="date" class="star">Date</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div>
+                            <label for="time" class="star">Time</label>
+                            <input type="time" id="time" name="time" required>
+                        </div>
+                        <div>
+                            <label for="numero" class="star">Number of guests</label>
+                            <input type="number" id="numero" name="number" min="0" required>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Details</legend>
+                        <div>
+                            <label for="name" class="star">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div>
+                            <label for="telephone" class="star">Telephone</label>
+                            <input type="tel" id="telephone" name="telephone" required>
+                        </div>
+                    </fieldset>
+                </div>
+                <fieldset>
+                    <legend>Further request</legend>
+                    <textarea name="text" id="text"></textarea>
+                </fieldset>
+                <input type="submit" value="Reserve" class="center">
+            </form>
+        </section>
+        <section>
+            <h2 class="center twostar">Our location</h2>
+            <a href="#" target="_blank"> <img class="maps"  src="./instructions/maquettes/map.jpg" alt=""></a>
+        </section>
+    </main>
+
+    <footer class="center">
+        <div class="footerfirst">
+            <article>
+                <h3>Opening hours</h3>
+                <p>Monday: Closed</p>
+                <p>Tue-Wed : 9am - 10pm</p>
+                <p>Thu-Fri : 9am - 10pm</p>
+                <p>Sat-Sun : 5pm - 10pm</p>
+            </article>
+            <article>
+                <h3>Contact</h3>
+                <p>13 Christopher Street</p>
+                <p>New York,</p>
+                <p>NY 10014-3543</p>
+                <a href="tel:+0120008009999">+01 2000 800 9999</a>
+            </article>
+            <article>
+                <h3>Social networks</h3>
+                <div class="containIcons">
+                    <div class="icons">
+                        <a href="http://facebook.com" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="size" fill="#fff">
+                        <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
+                    </div>
+                    <div class="icons">
+                        <a href="http://instagram.com" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="size" fill="#fff">
+                        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                    </div>
+                    <div class="icons">
+                        <a href="http://pinterest.com" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="size" fill="#fff">
+                            <path d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z"/></svg></a>
+                    </div>
+                </div>
+                <div class="arrow-up">
+                    <a href="#header"><svg width="40"  height="40"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
+                      </svg>
+                      <span>Haut de page</span>
+                      </a>
+                </div>
+            </article>
+        </div>
+        <div class="footertwo">
+            <img src="./instructions/ressources/images/logo-3wa.png" alt="logo3wa">
+            <p>
+                Cet exercice de <a href="#">3W Academy</a> est mis à disposition <span>pour l'usage personnel des étudiants. Pas de Rediffusion - Attribution - Pas d'Utilisation Commerciale - Pas de Modification - International.</span>
+            </p>
+            <p>
+                Les autorisations au-delà du champ de cette licence peuvent être obtenues auprès de contact@3wa.fr. Les maquettes ont été réalisées par <a href="#">Catherine Denos</a>. 
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
